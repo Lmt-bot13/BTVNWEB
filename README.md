@@ -1,10 +1,10 @@
-Họ và tên: Lưu Minh Trí
+## Họ và tên: Lưu Minh Trí
 
-Lớp: K59.KMT.K01
+## Lớp: K59.KMT.K01
 
-Môn học: Lập trình web
+## Môn học: Lập trình web
 
-Bài 1
+# Bài 1
 
 1. giả lập linux os: hyperV, virtualBox, vmware, wsl
 
@@ -56,7 +56,7 @@ Chạy 2 web trên 2 domain
 <img width="1917" height="1078" alt="image" src="https://github.com/user-attachments/assets/e5663783-086e-4b72-b99c-d3048f3e2071" />
 
 
-Bài 2
+# Bài 2
 
 Sử dụng nodered: dùng node http_in + http_response => tạo api đơn giản
 
