@@ -77,5 +77,9 @@ Code js vào trang html để gọi đc api trên
 
 <img width="1917" height="1063" alt="image" src="https://github.com/user-attachments/assets/befe7142-c2b6-4ba8-8b32-5592502bb870" />
 
+Gọi API 
+
+<img width="1917" height="1078" alt="image" src="https://github.com/user-attachments/assets/155f9eae-64be-4327-8276-00a3e52387b2" />
+
 
 
