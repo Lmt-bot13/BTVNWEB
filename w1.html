@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website 1 - w1.lmtbot.id.vn</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background: #0f172a; color: #fff; overflow: hidden; height: 100vh; display: flex; justify-content: center; align-items: center; }
+        canvas { position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 1; }
+        .card {
+            position: relative; z-index: 10; background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(16px); border: 1px solid rgba(255, 255, 255, 0.15);
+            padding: 40px; border-radius: 24px; text-align: center; max-width: 500px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5); transform: translateY(0); transition: all 0.3s ease;
+        }
+        .card:hover { transform: translateY(-10px); border-color: #38bdf8; }
+        .badge { display: inline-block; padding: 6px 16px; background: #0284c7; border-radius: 20px; font-size: 0.85rem; font-weight: 600; margin-bottom: 20px; letter-spacing: 1px; }
+        h1 { font-size: 2.2rem; margin-bottom: 15px; background: linear-gradient(135deg, #38bdf8, #818cf8); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        p { color: #94a3b8; margin-bottom: 25px; line-height: 1.6; }
+        .time { font-size: 1.5rem; font-weight: bold; color: #38bdf8; margin-bottom: 20px; font-family: monospace; }
+        button {
+            background: linear-gradient(135deg, #0284c7, #6366f1); border: none; color: white;
+            padding: 12px 28px; border-radius: 12px; font-size: 1rem; font-weight: 600; cursor: pointer;
+            box-shadow: 0 4px 15px rgba(2, 132, 199, 0.4); transition: transform 0.2s, box-shadow 0.2s;
+        }
+        button:active { transform: scale(0.95); }
+    </style>
+</head>
+<body>
+    <canvas id="particles"></canvas>
+    <div class="card">
+        <span class="badge">🚀 WEBSITE 1</span>
+        <h1>w1.lmtbot.id.vn</h1>
+        <p>Hệ thống Web Server Nginx - Giao diện Futuristic với hiệu ứng Canvas Particles & Realtime Engine.</p>
+        <div class="time" id="clock">00:00:00</div>
+        <button onclick="clickMe()">Tương tác (<span id="count">0</span>)</button>
+    </div>
+
+    <script>
+        setInterval(() => {
+            document.getElementById('clock').innerText = new Date().toLocaleTimeString('vi-VN');
+        }, 1000);
+
+        let count = 0;
+        function clickMe() {
+            count++;
+            document.getElementById('count').innerText = count;
+        }
+
+        const canvas = document.getElementById('particles');
+        const ctx = canvas.getContext('2d');
+        canvas.width = window.innerWidth;
+        canvas.height = window.innerHeight;
+
+        const particles = Array.from({ length: 60 }, () => ({
+            x: Math.random() * canvas.width,
+            y: Math.random() * canvas.height,
+            r: Math.random() * 3 + 1,
+            dx: (Math.random() - 0.5) * 1.5,
+            dy: (Math.random() - 0.5) * 1.5
+        }));
+
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(56, 189, 248, 0.6)';
+            particles.forEach(p => {
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
+                ctx.fill();
+                p.x += p.dx; p.y += p.dy;
+                if (p.x < 0 || p.x > canvas.width) p.dx *= -1;
+                if (p.y < 0 || p.y > canvas.height) p.dy *= -1;
+            });
+            requestAnimationFrame(animate);
+        }
+        animate();
+    </script>
+</body>
+</html>
