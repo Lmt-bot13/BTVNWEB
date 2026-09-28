@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Website 2 - w2.lmtbot.id.vn</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Poppins', sans-serif; }
+        body {
+            background: #0d0e15; color: #fff; min-height: 100vh;
+            display: flex; justify-content: center; align-items: center;
+            transition: background 0.5s ease;
+        }
+        .container {
+            text-align: center; padding: 50px; background: rgba(20, 21, 33, 0.8);
+            border: 2px solid #a855f7; border-radius: 30px;
+            box-shadow: 0 0 30px rgba(168, 85, 247, 0.3); max-width: 550px;
+        }
+        .tag { color: #a855f7; font-weight: bold; letter-spacing: 2px; text-transform: uppercase; margin-bottom: 10px; display: block; }
+        h1 { font-size: 2.5rem; margin-bottom: 20px; text-shadow: 0 0 10px rgba(168, 85, 247, 0.5); }
+        .typing { font-size: 1.2rem; color: #c084fc; height: 30px; margin-bottom: 30px; font-weight: 500; }
+        .theme-btns { display: flex; justify-content: center; gap: 15px; }
+        .color-dot {
+            width: 35px; height: 35px; border-radius: 50%; cursor: pointer;
+            border: 2px solid #fff; transition: transform 0.2s;
+        }
+        .color-dot:hover { transform: scale(1.2); }
+        .purple { background: #a855f7; }
+        .emerald { background: #10b981; }
+        .rose { background: #f43f5e; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <span class="tag">⚡ WEBSITE 2</span>
+        <h1>w2.lmtbot.id.vn</h1>
+        <div class="typing"><span id="type-text"></span></div>
+        <p style="color: #9ca3af; margin-bottom: 25px;">Đổi màu chủ đề bằng cách bấm vào các ô màu dưới đây:</p>
+        <div class="theme-btns">
+            <div class="color-dot purple" onclick="setTheme('#0d0e15', '#a855f7')"></div>
+            <div class="color-dot emerald" onclick="setTheme('#062016', '#10b981')"></div>
+            <div class="color-dot rose" onclick="setTheme('#20060e', '#f43f5e')"></div>
+        </div>
+    </div>
+
+    <script>
+        const text = "Chào mừng bạn đến với Server 2 của LMTBOT!";
+        let i = 0;
+        function typeWriter() {
+            if (i < text.length) {
+                document.getElementById("type-text").innerHTML += text.charAt(i);
+                i++;
+                setTimeout(typeWriter, 70);
+            }
+        }
+        typeWriter();
+
+        function setTheme(bg, accent) {
+            document.body.style.background = bg;
+            document.querySelector('.container').style.borderColor = accent;
+            document.querySelector('.container').style.boxShadow = `0 0 30px ${accent}55`;
+            document.querySelector('h1').style.textShadow = `0 0 10px ${accent}88`;
+            document.querySelector('.tag').style.color = accent;
+        }
+    </script>
+</body>
+</html>
